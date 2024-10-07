@@ -1,30 +1,63 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+    <div class="app">
+        <div class="btn-cont">
+            <button @click="addLikes" class="btn">Add likes</button>
+            <button @click="addDislikes" class="btn">Add dislikes</button>
+        </div>
+
+        <p>Count likes - <strong>{{likes}}</strong></p>
+        <p>Count dislikes - <strong>{{dislikes}}</strong></p>
+    </div>
 </template>
 
+<script>
+    export default {
+        data() {
+            return {
+                likes: 0,
+                dislikes: 0,
+            } 
+        },
+        methods: {
+            addLikes() {
+                this.likes +=1;
+            },
+            addDislikes() {
+                this.dislikes +=1;
+            }
+        }
+    }
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    /* * {
+        margin: 0;
+        padding: 0;
+    } */
+    
+    body {
+        font-family: "Tahoma";
+        font-weight: 100;
+    }
 
-nav {
-  padding: 30px;
-}
+    .app {
+        display: flex;
+        min-height: 100vh;
+        min-width: 100%;
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+    .btn {
+        display: inline-block;
+        padding: 15px;
+        background: none;
+        border: 1px solid teal;
+        border-radius: 6px;
+
+        margin: 6px;
+    }
 </style>
